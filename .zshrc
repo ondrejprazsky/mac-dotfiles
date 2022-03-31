@@ -30,18 +30,21 @@ then
   source ~/.aliases
 fi
 
+# Bash-style time output.
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 # Set architecture-specific brew share path.
 arch_name="$(uname -m)"
 if [ "${arch_name}" = "x86_64" ]; then
-    share_path="/usr/local/share"
+    brew_path="/usr/local"
 elif [ "${arch_name}" = "arm64" ]; then
-    share_path="/opt/homebrew/share"
+    brew_path="/opt/homebrew"
 else
     echo "Unknown architecture: ${arch_name}"
 fi
 
 # Allow history search via up/down keys.
-source ${share_path}/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ${brew_path}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
