@@ -18,9 +18,6 @@ export PS1=$'\n'"%F{green} %*%F %3~ %F{white}"$'\n'"$ "
 # Enable plugins.
 plugins=(git brew history kubectl history-substring-search)
 
-# Custom $PATH with extra locations.
-export PATH=$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
-
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
 
@@ -29,9 +26,6 @@ if [ -f ~/.aliases ]
 then
   source ~/.aliases
 fi
-
-# Bash-style time output.
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Set architecture-specific brew share path.
 arch_name="$(uname -m)"
@@ -43,10 +37,16 @@ else
     echo "Unknown architecture: ${arch_name}"
 fi
 
+# Custom $PATH with extra locations.
+export PATH=$HOME/Library/Python/3.8/bin:${brew_path}/bin:${brew_path}/sbin:$HOME/bin:$HOME/go/bin:$HOME/.composer/vendor/bin:$PATH
+
 # Allow history search via up/down keys.
 source ${brew_path}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
+
+# Install rbenv shims
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Git aliases.
 alias gs='git status'
