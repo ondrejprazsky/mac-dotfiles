@@ -45,6 +45,9 @@ source ${brew_path}/share/zsh-history-substring-search/zsh-history-substring-sea
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 
+# Install pyenv shims
+if which pyenv > /dev/null; then eval "$(pyenv init --path)"; fi
+
 # Install rbenv shims
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
