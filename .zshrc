@@ -1,6 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/Library/Python/3.8/bin:$HOME/bin:$HOME/go/bin:$HOME:$PATH
+export PATH=$HOME/Library/Python/3.8/bin:$HOME/bin:$HOME/go/bin:$PATH
+
+# Install pyenv shims
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Install rbenv shims
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -71,7 +77,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(aliases ansible brew git)
 
 source $ZSH/oh-my-zsh.sh
 
