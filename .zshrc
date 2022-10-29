@@ -77,7 +77,7 @@ ZSH_THEME="opecko"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aliases git ansible brew)
+plugins=(aliases ansible brew git python)
 
 source $ZSH/oh-my-zsh.sh
 
